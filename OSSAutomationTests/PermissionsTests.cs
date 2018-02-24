@@ -82,7 +82,7 @@ namespace OSSAutomationTests.Settings
         {
             User_Can_Go_To_Change_Password();
             Permissions.ChangePassword();
-            Assert.IsTrue(Permissions.PasswordIsChanged, "Cannot change password!");
+            Assert.IsTrue(Permissions.PasswordIsChanged, "Cannot change password.");
         }
 
         [TestMethod]
