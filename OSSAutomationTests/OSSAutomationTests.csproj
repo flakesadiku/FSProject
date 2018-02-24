@@ -54,6 +54,8 @@
     <Compile Include="POSBaseTests.cs" />
     <Compile Include="POSTests.cs" />
     <Compile Include="CashSaleTests.cs" />
+    <Compile Include="AddCustomerTests.cs" />
+    <Compile Include="PermissionsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

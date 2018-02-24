@@ -47,10 +47,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCustomer.cs" />
     <Compile Include="CashSale.cs" />
     <Compile Include="Driver.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="LoginPage.cs" />
+    <Compile Include="Permissions.cs" />
     <Compile Include="POSPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
