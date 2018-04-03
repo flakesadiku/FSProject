@@ -12,7 +12,7 @@ namespace OSSAutomationFramework
 
         public static void GoToAddCustomer()
         {
-            IWebElement Support = Helpers.FindElement(Driver.Instance, By.XPath("//*[@id=\"mainNav\"]/ul/li[2]/a/span"), 20);
+            IWebElement Support = Helpers.FindElement(Driver.Instance, By.XPath("//*[@id=\"mainNav\"]/ul/li[2]/a"), 20);
             Support.Click();
             System.Threading.Thread.Sleep(2000);
 
@@ -26,6 +26,12 @@ namespace OSSAutomationFramework
             IWebElement AddCustomer = Helpers.FindElement(Driver.Instance, By.XPath("//*[@id=\"cusselcont\"]/div[3]/div/div/p/button[1]"), 20);
             AddCustomer.Click();
             System.Threading.Thread.Sleep(3000);
+
+            IWebElement SwitchToIndividual = Helpers.FindElement(Driver.Instance, By.XPath("/html//div/form/div[3]/div[1]/div[2]/p/a"), 20);
+            SwitchToIndividual.Click();
+            System.Threading.Thread.Sleep(3000);
+
+
 
 
             var MrMrsSelectOption = Helpers.FindElement(Driver.Instance, By.XPath("//*[@id=\"cusAddEditCont\"]/div/div[2]/div[1]/div[1]/fieldset/span/select"), 20);
@@ -83,6 +89,9 @@ namespace OSSAutomationFramework
 
             IWebElement lastButton = Helpers.FindElement(Driver.Instance, By.XPath("//*[@id=\"searchButtons\"]/div/div[2]/div[4]/button"), 20);
             lastButton.Click();
+
+            IWebElement individualButton = Helpers.FindElement(Driver.Instance, By.XPath("//*[@id=\"searchButtons\"]/div/div[2]/div[1]/button/span"), 20);
+            individualButton.Click();
 
             IWebElement searchName = Helpers.FindElement(Driver.Instance, By.Id("txtFieldFName"), 20);
             searchName.Click();

@@ -124,6 +124,7 @@ namespace OSSAutomationTests.Settings
             Permissions.AddPermissionGroup();
             Assert.IsTrue(Permissions.groupIsAdded, "Cannot add groupEMP.");
         }
+
     }
 }
 

@@ -24,8 +24,8 @@ namespace OSSAutomationFramework
             get
             {
                 Helpers.Wait(TimeSpan.FromSeconds(1));
-                IWebElement cashSaleDesc = Helpers.FindElement(Driver.Instance, By.XPath("/html/body/modal-overlay/bs-modal-container/div/div/ng-component/div/div[1]/div/div[1]/a"), 10);
-                return cashSaleDesc.Text == "Create Invoice Detail";
+                IWebElement cashSaleDesc = Helpers.FindElement(Driver.Instance, By.XPath("/html//div/div[1]/div[1]/div/h2"), 10);
+                return cashSaleDesc.Text == "Create Invoice";
             }
         }
 
@@ -43,6 +43,7 @@ namespace OSSAutomationFramework
             IWebElement addButtonRow = Helpers.FindElement(Driver.Instance, By.XPath("/html/body/modal-overlay/bs-modal-container/div/div/ng-component/div/div[2]/div/div[1]/div[1]/div/pos-details-table/div/div/table/tbody/tr/td[1]/fieldset/div/div[1]/input"), 10);
             addButtonRow.SendKeys("IP002B");
             addButtonRow.SendKeys(Keys.Enter);
+            Helpers.Wait(TimeSpan.FromSeconds(3));
 
         }
         public static bool AvailableQuantityPopup
@@ -59,7 +60,9 @@ namespace OSSAutomationFramework
 
         public static void IgnoreButton()
         {
-            IWebElement ignoreButton = Helpers.FindElement(Driver.Instance, By.XPath("/html/body/modal-overlay[2]/bs-modal-container/div/div/quantity-exceeded/div/div[2]/div/div[3]/div[2]/button"), 10);
+            IWebElement ignoreButton = Helpers.FindElement(Driver.Instance, By.CssSelector("body > modal-overlay:nth-child(15) > bs-modal-container > div > div > quantity-exceeded > div > div.mainpopupc > div > div:nth-child(3) > div:nth-child(2) > button"), 10);
+            ignoreButton.Click();
+            Helpers.Wait(TimeSpan.FromSeconds(2));
             ignoreButton.Click();
 
         }

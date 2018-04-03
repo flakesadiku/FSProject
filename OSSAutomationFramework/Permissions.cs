@@ -11,9 +11,9 @@ namespace OSSAutomationFramework.Settings
         public static bool groupIsAdded = false;
         public static void GoToPermissions()
         {
-            IWebElement settingsButton = Helpers.FindElement(Driver.Instance, By.XPath("//*[@id=\"mainNav\"]/ul/li[7]/a/span"), 5);
+            IWebElement settingsButton = Helpers.FindElement(Driver.Instance, By.XPath("//*[@id=\"mainNav\"]/ul/li[7]/a"), 20);
             settingsButton.Click();
-            IWebElement permissionsButton = Helpers.FindElement(Driver.Instance, By.XPath("//*[@id=\"mainNav\"]/ul/li[7]/ul/li[1]/a"), 5);
+            IWebElement permissionsButton = Helpers.FindElement(Driver.Instance, By.XPath("//*[@id=\"mainNav\"]/ul/li[7]/ul/li[1]/a"), 20);
             permissionsButton.Click();
             Helpers.Wait(TimeSpan.FromSeconds(2));
         }
@@ -155,14 +155,14 @@ namespace OSSAutomationFramework.Settings
         public static void EditEMPItemsInit()
         {
             Helpers.Wait(TimeSpan.FromSeconds(2));
-            IWebElement emp = Helpers.FindElement(Driver.Instance, By.XPath("//*[@id=\"scrollingdiv\"]/table/tbody/tr[1]/td[1]"), 5);
+            IWebElement emp = Helpers.FindElement(Driver.Instance, By.XPath("//*[@id=\"scrollingdiv\"]/table/tbody/tr[1]/td[1]"), 10);
             emp.Click();
             Helpers.Wait(TimeSpan.FromSeconds(1));
-            IWebElement search = Helpers.FindElement(Driver.Instance, By.Id("Code"), 5);
-            search.SendKeys("VMO");
+            IWebElement search = Helpers.FindElement(Driver.Instance, By.Id("Code"), 10);
+            search.SendKeys("WMO");
             search.SendKeys(Keys.Enter);
-            IWebElement empCode = Helpers.FindElement(Driver.Instance, By.XPath("//*[@id=\"scrollingdiv\"]/table/tbody/tr[1]/td[1]"), 5);
-            IWebElement editButton = Helpers.FindElement(Driver.Instance, By.XPath("//*[@id=\"mainContentDiv\"]/div/div[2]/ng-component/div[3]/div/div[1]/p/button[contains(text(), 'Edit')]"), 5);
+            IWebElement empCode = Helpers.FindElement(Driver.Instance, By.XPath("//*[@id=\"scrollingdiv\"]/table/tbody/tr[1]/td[1]"), 10);
+            IWebElement editButton = Helpers.FindElement(Driver.Instance, By.XPath("//*[@id=\"mainContentDiv\"]/div/div[2]/ng-component/div[3]/div/div[1]/p/button[contains(text(), 'Edit')]"), 20);
             editButton.Click();
             Helpers.Wait(TimeSpan.FromSeconds(1));
         }
@@ -171,21 +171,22 @@ namespace OSSAutomationFramework.Settings
         {
             get
             {
-                IWebElement selectItems = Helpers.FindElement(Driver.Instance, By.XPath("/html/body/modal-overlay/bs-modal-container/div/div/ng-component/div/div[1]/div/div/h2"), 5);
+                IWebElement selectItems = Helpers.FindElement(Driver.Instance, By.XPath("/html/body/modal-overlay/bs-modal-container/div/div/ng-component/div/div[1]/div/div/h2"), 20);
                 return selectItems.Text == "Select Items";
             }
         }
 
         public static void EditEMPItems()
         {
-            IWebElement selectAll = Helpers.FindElement(Driver.Instance, By.XPath("/html/body/modal-overlay/bs-modal-container/div/div/ng-component/div/div[3]/div/div/p/button[3]"), 5);
+        
+            Helpers.Wait(TimeSpan.FromSeconds(1));
+            IWebElement unselectAll = Helpers.FindElement(Driver.Instance, By.XPath("/html//div/div[3]/div/div/p/button[4]"), 5);
+            unselectAll.Click();
+            IWebElement selectAll = Helpers.FindElement(Driver.Instance, By.XPath("/html//div/div[3]/div/div/p/button[3]"), 20);
             selectAll.Click();
             Helpers.Wait(TimeSpan.FromSeconds(1));
-            IWebElement unselectAll = Helpers.FindElement(Driver.Instance, By.XPath("/html/body/modal-overlay/bs-modal-container/div/div/ng-component/div/div[3]/div/div/p/button[4]"), 5);
-            unselectAll.Click();
-            Helpers.Wait(TimeSpan.FromSeconds(1));
-            IWebElement general = Helpers.FindElement(Driver.Instance, By.XPath("/html/body/modal-overlay/bs-modal-container/div/div/ng-component/div/div[2]/div/div/div[1]/div/div/table/tbody/tr[1]/td"), 5);
-            general.Click();
+            //IWebElement general = Helpers.FindElement(Driver.Instance, By.XPath("/html/body/modal-overlay/bs-modal-container/div/div/ng-component/div/div[2]/div/div/div[1]/div/div/table/tbody/tr[1]/td"), 5);
+            //general.Click();
         }
 
         public static bool IsSelected
@@ -224,7 +225,7 @@ namespace OSSAutomationFramework.Settings
         public static void CopyEMP()
         {
             IWebElement copy = Helpers.FindElement(Driver.Instance, By.Name("copyEmp"), 5);
-            copy.SendKeys("VMO");
+            copy.SendKeys("WMO");
             copy.SendKeys(Keys.ArrowDown);
             copy.SendKeys(Keys.Enter);
             IWebElement copyForm = Helpers.FindElement(Driver.Instance, By.XPath("/html/body/modal-overlay/bs-modal-container/div/div/ng-component/div"), 5);
@@ -247,15 +248,15 @@ namespace OSSAutomationFramework.Settings
 
         public static void SuspendEMP()
         {
-            IWebElement emp = Helpers.FindElement(Driver.Instance, By.XPath("//*[@id=\"scrollingdiv\"]//td[1]"), 5);
+            IWebElement emp = Helpers.FindElement(Driver.Instance, By.XPath("//*[@id=\"scrollingdiv\"]//td[1]"), 10);
             emp.Click();
-            IWebElement codeSearch = Helpers.FindElement(Driver.Instance, By.Id("Code"), 5);
+            IWebElement codeSearch = Helpers.FindElement(Driver.Instance, By.Id("Code"), 10);
             codeSearch.Click();
             codeSearch.SendKeys("EE");
             codeSearch.SendKeys(Keys.Enter);
-            IWebElement empIsFound = Helpers.FindElement(Driver.Instance, By.XPath("//*[@id=\"scrollingdiv\"]//td[1]"), 5);
+            IWebElement empIsFound = Helpers.FindElement(Driver.Instance, By.XPath("//*[@id=\"scrollingdiv\"]//td[1]"), 10);
             empIsFound.Click();
-            IWebElement activateButton = Helpers.FindElement(Driver.Instance, By.XPath("//*[@id=\"mainContentDiv\"]//button[4]"), 5);
+            IWebElement activateButton = Helpers.FindElement(Driver.Instance, By.XPath("//*[@id=\"mainContentDiv\"]//button[4]"), 10);
             activateButton.Click();
         }
 
@@ -263,7 +264,7 @@ namespace OSSAutomationFramework.Settings
         {
             get
             {
-                IWebElement activateButton = Helpers.FindElement(Driver.Instance, By.XPath("//*[@id=\"mainContentDiv\"]//button[4]"), 5);
+                IWebElement activateButton = Helpers.FindElement(Driver.Instance, By.XPath("//*[@id=\"mainContentDiv\"]//button[4]"), 10);
                 return activateButton.Text == "Suspend";
             }
         }
@@ -295,7 +296,7 @@ namespace OSSAutomationFramework.Settings
         {
             IWebElement newPassword = Helpers.FindElement(Driver.Instance, By.Id("newpassword"), 5);
             newPassword.Click();
-            newPassword.SendKeys("2");
+            newPassword.SendKeys("23");
             newPassword.SendKeys(Keys.Enter);
             IWebElement verifyPassword = Helpers.FindElement(Driver.Instance, By.Id("retypepassword"), 5);
             verifyPassword.Click();
@@ -411,7 +412,7 @@ namespace OSSAutomationFramework.Settings
         {
             get
             {
-                IWebElement reports = Helpers.FindElement(Driver.Instance, By.XPath("/html/body/modal-overlay/bs-modal-container/div/div/ng-component/div/div[2]/div/div[4]/div[1]/div[1]/tree-root/tree-viewport/div/div/tree-node-collection/div/tree-node/div/tree-node-children/div/tree-node-collection/div/tree-node/div/tree-node-wrapper/div/div/tree-node-content/span"), 5);
+                IWebElement reports = Helpers.FindElement(Driver.Instance, By.XPath("/html/body/modal-overlay/bs-modal-container/div/div/ng-component/div/div[2]/div/div[2]/div[1]/fieldset/span/select/option[16]"), 10);
                 return reports.Text == "Reports";
             }
         }
